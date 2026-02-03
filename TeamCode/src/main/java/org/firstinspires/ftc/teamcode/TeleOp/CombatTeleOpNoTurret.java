@@ -4,7 +4,6 @@ import com.pedropathing.follower.Follower;
 import com.pedropathing.geometry.Pose;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import org.firstinspires.ftc.teamcode.math.ShotCalculator;
 import org.firstinspires.ftc.teamcode.pedroPathing.Constants;
 import org.firstinspires.ftc.teamcode.subsystems.*;
 import org.firstinspires.ftc.vision.apriltag.AprilTagDetection;
@@ -18,8 +17,6 @@ public class    CombatTeleOpNoTurret extends OpMode {
     private Vision vision;
     private Hood hood;
     private Claw claw;
-
-    private ShotCalculator shotCalculator;
 
     public enum RobotState { IDLE, INTAKE, OUTTAKE, PREP_SHOOT, SHOOTING }
     private RobotState currentState = RobotState.IDLE;
@@ -45,7 +42,6 @@ public class    CombatTeleOpNoTurret extends OpMode {
         vision = new Vision(hardwareMap);
         hood = new Hood(hardwareMap);
         claw = new Claw(hardwareMap);
-        shotCalculator = new ShotCalculator();
 
         claw.close();
         telemetry.addLine("NO TURRET MODE. Waiting for camera...");
